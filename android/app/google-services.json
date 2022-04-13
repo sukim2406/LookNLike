@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "752826857087",
+    "project_id": "sosodev-whatsinmywardrobe",
+    "storage_bucket": "sosodev-whatsinmywardrobe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752826857087:android:a0176cde44531f63b7f14a",
+        "android_client_info": {
+          "package_name": "com.sosodev.whats_in_my_wardrobe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "752826857087-vg8igqo086er41h2agkrfb0q0m8s1cl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvyZ6Q_JOxtX_j7LsGqBm63QOK3vHUK0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "752826857087-vg8igqo086er41h2agkrfb0q0m8s1cl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
