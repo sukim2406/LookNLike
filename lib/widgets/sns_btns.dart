@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../statics/global.dart' as global;
 
+import '../controllers/auth_controller.dart';
+
 class SNSBtns extends StatelessWidget {
   const SNSBtns({Key? key}) : super(key: key);
 
@@ -13,23 +15,23 @@ class SNSBtns extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Container(),
-          ),
-          GestureDetector(
-            child: CircleAvatar(
-              radius: global.setHeight(context, .025),
-              child: ClipOval(
-                child: Image.asset(
-                  'img/apple.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            onTap: () {
-              print('Apple login');
-            },
-          ),
+          // Expanded(
+          //   child: Container(),
+          // ),
+          // GestureDetector(
+          //   child: CircleAvatar(
+          //     radius: global.setHeight(context, .025),
+          //     child: ClipOval(
+          //       child: Image.asset(
+          //         'img/apple.png',
+          //         fit: BoxFit.contain,
+          //       ),
+          //     ),
+          //   ),
+          //   onTap: () {
+          //     print('Apple login');
+          //   },
+          // ),
           Expanded(
             child: Container(),
           ),
@@ -43,8 +45,8 @@ class SNSBtns extends StatelessWidget {
                 ),
               ),
             ),
-            onTap: () {
-              print('Google login');
+            onTap: () async {
+              AuthController.instance.logInGoogle();
             },
           ),
           Expanded(

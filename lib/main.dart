@@ -3,12 +3,23 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import './controllers/auth_controller.dart';
+import './controllers/google_provider.dart';
+
 import './pages/splash_screen.dart';
-import './pages/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp().then(
+    (value) {
+      Get.put(
+        AuthController(),
+      );
+      Get.put(
+        GoogleProvider(),
+      );
+    },
+  );
   runApp(const MyApp());
 }
 
@@ -22,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const LogIn(),
+      home: const SplashScreen(),
     );
   }
 }
