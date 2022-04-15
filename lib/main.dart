@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import './controllers/auth_controller.dart';
-import './controllers/google_provider.dart';
 
 import './pages/splash_screen.dart';
 
@@ -14,9 +13,6 @@ void main() async {
     (value) {
       Get.put(
         AuthController(),
-      );
-      Get.put(
-        GoogleProvider(),
       );
     },
   );

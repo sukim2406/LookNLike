@@ -5,30 +5,9 @@ import '../statics/global.dart' as global;
 import '../controllers/auth_controller.dart';
 
 import '../widgets/bottom_navbar.dart';
+import '../widgets/top_navbar.dart';
 
-// class LandingScreen extends StatelessWidget {
-//   const LandingScreen({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         height: global.setHeight(context, 1),
-//         width: global.setWidth(context, 1),
-//         color: global.tertiaryColor,
-//         child: Center(
-//           child: TextButton(
-//             onPressed: () {
-//               AuthController.instance.logout();
-//             },
-//             child: const Text('LOG OUT'),
-//           ),
-//         ),
-//       ),
-//       bottomNavigationBar: BottomNavbar(curIndex: 1),
-//     );
-//   }
-// }
+import '../pages/feed_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -58,29 +37,17 @@ class _LandingScreenState extends State<LandingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  AuthController.instance.logout();
-                },
-                child: const Text('LOG OUT'),
-              ),
-            ),
+            TopNavbar(),
             (curIndex == 0)
-                ? Center(
-                    child: Text('HOME'),
-                  )
-                : (curIndex == 1)
-                    ? Center(
-                        child: Text('SEARCH'),
-                      )
-                    : (curIndex == 2)
-                        ? Center(
-                            child: Text('UPLOAD'),
-                          )
-                        : Center(
-                            child: Text('ACCOUNT'),
-                          )
+                ? FeedScreen()
+                : Center(
+                    child: TextButton(
+                      onPressed: () {
+                        AuthController.instance.logout();
+                      },
+                      child: const Text('LOG OUT'),
+                    ),
+                  ),
           ],
         ),
       ),

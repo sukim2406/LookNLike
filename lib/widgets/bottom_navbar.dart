@@ -14,36 +14,36 @@ class BottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: global.secondaryColor,
-      selectedItemColor: global.tertiaryColor,
-      unselectedItemColor: global.quarternaryColor,
-      showUnselectedLabels: false,
-      currentIndex: curIndex,
-      onTap: (index) => setCurIndex(index),
-      items: const [
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.house),
-          label: 'HOME',
-          backgroundColor: Colors.amber,
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.searchengin),
-          label: 'SEARCH',
-          backgroundColor: Colors.amber,
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.upload),
-          label: 'UPLOAD',
-          backgroundColor: Colors.amber,
-        ),
-        BottomNavigationBarItem(
-          icon: FaIcon(FontAwesomeIcons.person),
-          label: 'ACCOUNT',
-          backgroundColor: Colors.amber,
-        ),
-      ],
+    return Container(
+      height: global.setHeight(context, .1),
+      color: global.secondaryColor,
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: global.tertiaryColor,
+        selectedItemColor: global.secondaryColor,
+        unselectedItemColor: global.quarternaryColor,
+        showUnselectedLabels: false,
+        currentIndex: curIndex,
+        onTap: (index) => setCurIndex(index),
+        items: const [
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.house),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.searchengin),
+            label: 'SEARCH',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.upload),
+            label: 'UPLOAD',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.person),
+            label: 'ACCOUNT',
+          ),
+        ],
+      ),
     );
   }
 }
