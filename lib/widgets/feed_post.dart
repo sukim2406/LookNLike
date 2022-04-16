@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../statics/global.dart' as global;
 
+import '../widgets/tag_list.dart';
+
 class FeedPost extends StatefulWidget {
   final Map postData;
   const FeedPost({
@@ -31,7 +33,7 @@ class _FeedPostState extends State<FeedPost> {
       color: global.secondaryColor,
       child: Center(
         child: Container(
-          width: global.setWidth(context, .9),
+          width: global.setWidth(context, 1),
           height: global.setHeight(context, .55),
           color: global.quarternaryColor,
           child: Column(
@@ -105,7 +107,7 @@ class _FeedPostState extends State<FeedPost> {
                   (liked) ? print('post liked') : print('post unliked');
                 },
                 child: Container(
-                  width: global.setWidth(context, .9),
+                  width: global.setWidth(context, 1),
                   height: global.setHeight(context, .4),
                   color: Colors.white,
                   child: Image.asset(
@@ -114,22 +116,8 @@ class _FeedPostState extends State<FeedPost> {
                   ),
                 ),
               ),
-              Container(
-                width: global.setWidth(context, .9),
-                height: global.setHeight(context, .05),
-                color: Colors.red,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: widget.postData['keywords'].length,
-                  itemBuilder: (context, index) {
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Container(
-                        child: Text(widget.postData['keywords'][index]),
-                      ),
-                    );
-                  },
-                ),
+              TagList(
+                tags: widget.postData['keywords'],
               ),
               SizedBox(
                 width: global.setWidth(context, .9),
@@ -168,10 +156,15 @@ class _FeedPostState extends State<FeedPost> {
                     Expanded(child: Container()),
                     SizedBox(
                       width: global.setWidth(context, .4),
-                      child: Text(
-                        'Click for outfit details..',
-                        style: TextStyle(
-                          color: global.tertiaryColor,
+                      child: GestureDetector(
+                        onTap: () {
+                          print('show detail clicked');
+                        },
+                        child: Text(
+                          'Click for outfit details..',
+                          style: TextStyle(
+                            color: global.tertiaryColor,
+                          ),
                         ),
                       ),
                     ),
