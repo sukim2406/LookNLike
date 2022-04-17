@@ -60,11 +60,8 @@ class FeedScreen extends StatelessWidget {
                     'date': DateTime.now().toString().substring(0, 16),
                     'postImg': 'img/Logo460x460.png',
                     'keywords': [
-                      'new',
-                      'logo',
-                      'anythig',
-                      'black',
-                      'tpo',
+                      'hot',
+                      'google',
                       'etc',
                     ]
                   },

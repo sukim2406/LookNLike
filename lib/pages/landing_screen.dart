@@ -8,6 +8,7 @@ import '../widgets/bottom_navbar.dart';
 import '../widgets/top_navbar.dart';
 
 import '../pages/feed_screen.dart';
+import '../pages/search_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -40,14 +41,16 @@ class _LandingScreenState extends State<LandingScreen> {
             TopNavbar(),
             (curIndex == 0)
                 ? FeedScreen()
-                : Center(
-                    child: TextButton(
-                      onPressed: () {
-                        AuthController.instance.logout();
-                      },
-                      child: const Text('LOG OUT'),
-                    ),
-                  ),
+                : (curIndex == 1)
+                    ? SearchScreen()
+                    : Center(
+                        child: TextButton(
+                          onPressed: () {
+                            AuthController.instance.logout();
+                          },
+                          child: const Text('LOG OUT'),
+                        ),
+                      ),
           ],
         ),
       ),

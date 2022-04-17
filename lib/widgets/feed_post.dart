@@ -5,6 +5,8 @@ import '../statics/global.dart' as global;
 
 import '../widgets/tag_list.dart';
 
+import '../pages/single_post_screen.dart';
+
 class FeedPost extends StatefulWidget {
   final Map postData;
   const FeedPost({
@@ -158,7 +160,14 @@ class _FeedPostState extends State<FeedPost> {
                       width: global.setWidth(context, .4),
                       child: GestureDetector(
                         onTap: () {
-                          print('show detail clicked');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SinglePostScreen(
+                                post: widget.postData,
+                              ),
+                            ),
+                          );
                         },
                         child: Text(
                           'Click for outfit details..',

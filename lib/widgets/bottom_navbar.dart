@@ -35,8 +35,8 @@ class BottomNavbar extends StatelessWidget {
             label: 'SEARCH',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.upload),
-            label: 'UPLOAD',
+            icon: FaIcon(FontAwesomeIcons.bagShopping),
+            label: 'SHOP',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.person),
