@@ -9,6 +9,8 @@ import '../widgets/top_navbar.dart';
 
 import '../pages/feed_screen.dart';
 import '../pages/search_screen.dart';
+import '../pages/sponsors_screen.dart';
+import '../pages/account_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -43,14 +45,17 @@ class _LandingScreenState extends State<LandingScreen> {
                 ? FeedScreen()
                 : (curIndex == 1)
                     ? SearchScreen()
-                    : Center(
-                        child: TextButton(
-                          onPressed: () {
-                            AuthController.instance.logout();
-                          },
-                          child: const Text('LOG OUT'),
-                        ),
-                      ),
+                    : (curIndex == 2)
+                        ? SponsorsScreen()
+                        : AccountScreen(),
+            // Center(
+            //     child: TextButton(
+            //       onPressed: () {
+            //         AuthController.instance.logout();
+            //       },
+            //       child: const Text('LOG OUT'),
+            //     ),
+            //   ),
           ],
         ),
       ),
