@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../statics/global.dart' as global;
 
+import '../widgets/stat_box.dart';
+
 class AccountStats extends StatelessWidget {
   const AccountStats({Key? key}) : super(key: key);
 
@@ -14,127 +16,23 @@ class AccountStats extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-            width: global.setWidth(context, .04),
+            width: global.setWidth(context, .08),
           ),
-          Container(
-            height: global.setHeight(context, .1),
-            width: global.setWidth(context, .15),
-            color: global.secondaryColor,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: global.setHeight(context, .06),
-                  width: global.setWidth(context, .15),
-                  color: Colors.amber,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('0'),
-                  ),
-                ),
-                Container(
-                  height: global.setHeight(context, .03),
-                  width: global.setWidth(context, .15),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('POSTS'),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          StatBox(label: '  Posts  ', numb: 12300),
           SizedBox(
-            width: global.setWidth(context, .04),
+            width: global.setWidth(context, .08),
           ),
-          Container(
-            height: global.setHeight(context, .1),
-            width: global.setWidth(context, .15),
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: global.setHeight(context, .06),
-                  width: global.setWidth(context, .15),
-                  color: Colors.amber,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('0'),
-                  ),
-                ),
-                Container(
-                  height: global.setHeight(context, .03),
-                  width: global.setWidth(context, .15),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('LIKES'),
-                  ),
-                )
-              ],
-            ),
-          ),
+          StatBox(label: 'Following', numb: 12030402),
           SizedBox(
-            width: global.setWidth(context, .04),
+            width: global.setWidth(context, .08),
           ),
-          Container(
-            height: global.setHeight(context, .1),
-            width: global.setWidth(context, .15),
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: global.setHeight(context, .06),
-                  width: global.setWidth(context, .15),
-                  color: Colors.amber,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('0'),
-                  ),
-                ),
-                Container(
-                  height: global.setHeight(context, .03),
-                  width: global.setWidth(context, .15),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('FOLLOWING'),
-                  ),
-                )
-              ],
-            ),
-          ),
+          StatBox(label: 'Followers', numb: 999),
           SizedBox(
-            width: global.setWidth(context, .04),
+            width: global.setWidth(context, .08),
           ),
-          Container(
-            height: global.setHeight(context, .1),
-            width: global.setWidth(context, .15),
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: global.setHeight(context, .06),
-                  width: global.setWidth(context, .15),
-                  color: Colors.amber,
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('0'),
-                  ),
-                ),
-                Container(
-                  height: global.setHeight(context, .03),
-                  width: global.setWidth(context, .15),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text('FOLLOWERS'),
-                  ),
-                )
-              ],
-            ),
-          ),
+          StatBox(label: '  Likes  ', numb: 1000),
           SizedBox(
-            width: global.setWidth(context, .04),
+            width: global.setWidth(context, .08),
           ),
         ],
       ),

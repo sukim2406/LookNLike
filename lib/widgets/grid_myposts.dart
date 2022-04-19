@@ -70,32 +70,27 @@ class GridMyposts extends StatelessWidget {
     return Container(
       height: global.setHeight(context, .8),
       width: global.setWidth(context, 1),
-      color: global.tertiaryColor,
+      color: global.secondaryColor,
       child: Column(
         children: [
           Container(
-            height: global.setHeight(context, .05),
+            height: global.setHeight(context, .025),
             width: global.setWidth(context, 1),
-            color: Colors.white,
-            child: Row(
-              children: [
-                SizedBox(
-                  height: global.setHeight(context, .05),
-                  width: global.setWidth(context, .4),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: Text(
-                      'MY POSTS',
-                    ),
-                  ),
+            child: FittedBox(
+              fit: BoxFit.contain,
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                'My Posts',
+                style: TextStyle(
+                  color: global.tertiaryColor,
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
+              ),
             ),
           ),
           Container(
-            height: global.setHeight(context, .75),
+            height: global.setHeight(context, .775),
             width: global.setWidth(context, 1),
-            color: Colors.amber,
             child: GridView.builder(
               shrinkWrap: true,
               itemCount: temp.length,
