@@ -2,10 +2,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 import '../statics/global.dart' as global;
 
 import '../widgets/tag_upload.dart';
+import '../widgets/dropdown_menu.dart';
 
 class UploadScreen extends StatelessWidget {
   // final XFile filePicker;
@@ -39,10 +41,9 @@ class UploadScreen extends StatelessWidget {
                 filePicker,
               ),
             ),
-            Container(
-              height: global.setHeight(context, .3),
-              width: global.setWidth(context, .8),
-              color: global.tertiaryColor,
+            DropdownMenu(),
+            SizedBox(
+              height: global.setHeight(context, .02),
             ),
             TagUpload(),
             Expanded(
