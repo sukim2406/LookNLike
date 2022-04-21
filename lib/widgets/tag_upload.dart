@@ -17,9 +17,10 @@ class _TagUploadState extends State<TagUpload> {
   TextfieldTagsController controller = TextfieldTagsController();
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: global.setWidth(context, .9),
-      height: global.setHeight(context, .2),
+      height: global.setHeight(context, .12),
+      color: global.secondaryColor,
       child: TextFieldTags(
         textfieldTagsController: controller,
         initialTags: const ['look', '&', 'like', 'test', 'hi', 'alsdkja'],

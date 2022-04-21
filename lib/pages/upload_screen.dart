@@ -8,6 +8,7 @@ import '../statics/global.dart' as global;
 
 import '../widgets/tag_upload.dart';
 import '../widgets/dropdown_menu.dart';
+import '../widgets/text_btn.dart';
 
 class UploadScreen extends StatelessWidget {
   // final XFile filePicker;
@@ -35,19 +36,25 @@ class UploadScreen extends StatelessWidget {
               height: global.setHeight(context, .01),
             ),
             SizedBox(
-              height: global.setHeight(context, .4),
+              height: global.setHeight(context, .3),
               width: global.setWidth(context, 1),
               child: Image.asset(
                 filePicker,
               ),
+            ),
+            SizedBox(
+              height: global.setHeight(context, .02),
             ),
             DropdownMenu(),
             SizedBox(
               height: global.setHeight(context, .02),
             ),
             TagUpload(),
-            Expanded(
-              child: Container(),
+            TextBtn(
+              label: 'UPLOAD',
+              function: () {
+                print('hi');
+              },
             ),
           ],
         ),

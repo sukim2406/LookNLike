@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:searchfield/searchfield.dart';
 
 int loadingTextMaxIndex = 3;
 int languageIndex = 0;
@@ -15,3 +16,41 @@ setWidth(context, ratio) {
 setHeight(context, ratio) {
   return MediaQuery.of(context).size.height * ratio;
 }
+
+var clothingType = [
+  SearchFieldListItem(
+    'tshirt',
+    child: Text('tshirt'),
+  ),
+  SearchFieldListItem(
+    'top',
+    child: Text('top'),
+  ),
+  SearchFieldListItem(
+    'sneakers',
+    child: Text('sneakers'),
+  ),
+  SearchFieldListItem(
+    'jacket',
+    child: Text('jacket'),
+  ),
+  SearchFieldListItem(
+    'dress',
+    child: Text('dress'),
+  ),
+  SearchFieldListItem(
+    'jeans',
+    child: Text('jeans'),
+  ),
+];
+
+var clothingTypeList = [
+  'tshirt',
+  'top',
+  'sneakers',
+  'jacket',
+  'dress',
+  'jeans',
+  'other',
+  'custom',
+];
