@@ -15,107 +15,144 @@ class TagUpload extends StatefulWidget {
 
 class _TagUploadState extends State<TagUpload> {
   TextfieldTagsController controller = TextfieldTagsController();
+  List<String> initialTags = [
+    'Look',
+    '&',
+    'Like',
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: global.setWidth(context, .9),
-      height: global.setHeight(context, .12),
-      color: global.secondaryColor,
-      child: TextFieldTags(
-        textfieldTagsController: controller,
-        initialTags: const ['look', '&', 'like', 'test', 'hi', 'alsdkja'],
-        inputfieldBuilder: (context, tec, fn, error, onChanged, onSubmitted) {
-          return ((context, sc, tags, onTagDelete) {
-            return Column(
-              children: [
-                SingleChildScrollView(
-                  controller: sc,
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                      children: tags.map((String tag) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                        color: global.tertiaryColor,
-                      ),
-                      margin: const EdgeInsets.only(right: 10.0),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 4.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      width: global.setWidth(context, 1),
+      height: global.setHeight(context, .18),
+      child: Column(
+        children: [
+          Container(
+            height: global.setHeight(context, .05),
+            width: global.setWidth(context, 1),
+            color: global.tertiaryColor,
+            alignment: Alignment.center,
+            child: const Text(
+              'Add tags to post',
+              style: TextStyle(
+                fontSize: 15,
+              ),
+            ),
+          ),
+          Container(
+            height: global.setHeight(context, .01),
+          ),
+          SizedBox(
+            width: global.setWidth(context, .9),
+            child: TextFieldTags(
+              textfieldTagsController: controller,
+              initialTags: initialTags,
+              inputfieldBuilder:
+                  (context, tec, fn, error, onChanged, onSubmitted) {
+                return ((context, sc, tags, onTagDelete) {
+                  return Column(
+                    children: [
+                      Row(
                         children: [
-                          InkWell(
-                            child: Text(
-                              '#$tag',
-                              style: TextStyle(color: global.secondaryColor),
+                          SizedBox(
+                            width: global.setWidth(context, .8),
+                            child: TextField(
+                              controller: tec,
+                              focusNode: fn,
+                              decoration: InputDecoration(
+                                border: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: global.quarternaryColor,
+                                      width: 3.0),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: global.quarternaryColor,
+                                      width: 3.0),
+                                ),
+                                // helperText: 'Add tags...',
+                                helperStyle: TextStyle(
+                                  color: global.quarternaryColor,
+                                ),
+                                hintText:
+                                    controller.hasTags ? '' : "Enter tag...",
+                                errorText: error,
+                                prefixIconConstraints: BoxConstraints(
+                                  maxWidth: global.setWidth(context, .9),
+                                ),
+                              ),
+                              onChanged: onChanged,
+                              onSubmitted: onSubmitted,
                             ),
-                            onTap: () {
-                              print("$tag selected");
-                            },
                           ),
-                          const SizedBox(width: 4.0),
-                          InkWell(
-                            child: Icon(
-                              Icons.cancel,
-                              size: 14.0,
-                              color: global.quarternaryColor,
+                          SizedBox(
+                            width: global.setWidth(context, .1),
+                            child: GestureDetector(
+                              child: FaIcon(FontAwesomeIcons.plus),
+                              onTap: () {
+                                if (tec.text.isNotEmpty) {
+                                  onSubmitted!(tec.text);
+                                  tec.clear();
+                                }
+                              },
                             ),
-                            onTap: () {
-                              onTagDelete(tag);
-                            },
                           )
                         ],
                       ),
-                    );
-                  }).toList()),
-                ),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: global.setWidth(context, .8),
-                      child: TextField(
-                        controller: tec,
-                        focusNode: fn,
-                        decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: global.quarternaryColor, width: 3.0),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: global.quarternaryColor, width: 3.0),
-                          ),
-                          helperText: 'Add tags...',
-                          helperStyle: TextStyle(
-                            color: global.quarternaryColor,
-                          ),
-                          hintText: controller.hasTags ? '' : "Enter tag...",
-                          errorText: error,
-                          prefixIconConstraints: BoxConstraints(
-                            maxWidth: global.setWidth(context, .9),
-                          ),
-                        ),
-                        onChanged: onChanged,
-                        onSubmitted: onSubmitted,
+                      SizedBox(
+                        height: global.setHeight(context, .02),
                       ),
-                    ),
-                    SizedBox(
-                      width: global.setWidth(context, .1),
-                      child: GestureDetector(
-                        child: FaIcon(FontAwesomeIcons.plus),
-                        onTap: () {
-                          print(tec.text);
-                        },
+                      SingleChildScrollView(
+                        controller: sc,
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                            children: tags.map((String tag) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(20.0),
+                              ),
+                              color: global.tertiaryColor,
+                            ),
+                            margin: const EdgeInsets.only(right: 10.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 4.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                  child: Text(
+                                    '#$tag',
+                                    style:
+                                        TextStyle(color: global.secondaryColor),
+                                  ),
+                                  onTap: () {
+                                    print("$tag selected");
+                                  },
+                                ),
+                                const SizedBox(width: 4.0),
+                                InkWell(
+                                  child: Icon(
+                                    Icons.cancel,
+                                    size: 14.0,
+                                    color: global.quarternaryColor,
+                                  ),
+                                  onTap: () {
+                                    onTagDelete(tag);
+                                  },
+                                )
+                              ],
+                            ),
+                          );
+                        }).toList()),
                       ),
-                    )
-                  ],
-                ),
-              ],
-            );
-          });
-        },
+                    ],
+                  );
+                });
+              },
+            ),
+          ),
+        ],
       ),
       // child: TextFieldTags(
       //   textfieldTagsController: controller,

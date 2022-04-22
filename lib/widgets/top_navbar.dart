@@ -8,6 +8,7 @@ import '../statics/global.dart' as global;
 import '../controllers/auth_controller.dart';
 
 import '../pages/upload_screen.dart';
+import '../pages/image_confirm_screen.dart';
 
 class TopNavbar extends StatelessWidget {
   const TopNavbar({Key? key}) : super(key: key);
@@ -116,7 +117,8 @@ class TopNavbar extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          UploadScreen(filePicker: 'img/Logo460x460.png'),
+                          // UploadScreen(filePicker: 'img/Logo460x460.png'),
+                          ImageConfirmScreen(filePicker: 'img/Logo460x460.png'),
                     ),
                   );
                   // final filePicker =

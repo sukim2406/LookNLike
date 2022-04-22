@@ -17,12 +17,24 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: global.tertiaryColor,
+        title: Text('Post Detail'),
+      ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: global.setHeight(context, 1),
           width: global.setWidth(context, 1),
-          color: global.primaryColor,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: global.setWidth(context, .8),
+                height: global.setHeight(context, .3),
+                child: Image.asset(widget.post['postImg']),
+              ),
+            ],
+          ),
         ),
       ),
     );

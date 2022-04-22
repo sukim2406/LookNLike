@@ -21,25 +21,29 @@ class UploadScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: global.tertiaryColor,
+        title: Text('New post'),
+      ),
       body: Container(
         height: global.setHeight(context, .9),
         width: global.setWidth(context, 1),
-        color: global.secondaryColor,
+        // color: global.tertiaryColor,
         // child: Image.file(
         //   File(filePicker.path),
         // ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: global.setHeight(context, .01),
+            Expanded(
+              child: Container(),
             ),
             SizedBox(
-              height: global.setHeight(context, .3),
+              height: global.setHeight(context, .1),
               width: global.setWidth(context, 1),
               child: Image.asset(
                 filePicker,
+                fit: BoxFit.contain,
               ),
             ),
             SizedBox(
@@ -55,6 +59,9 @@ class UploadScreen extends StatelessWidget {
               function: () {
                 print('hi');
               },
+            ),
+            Expanded(
+              child: Container(),
             ),
           ],
         ),

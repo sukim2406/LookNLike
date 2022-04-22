@@ -22,24 +22,30 @@ class _DropdownMenuState extends State<DropdownMenu> {
   TextEditingController customController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   itemInfos = [];
-  //   String selectedItem = 'custom';
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: global.setHeight(context, .3),
+    return SizedBox(
+      height: global.setHeight(context, .36),
       width: global.setWidth(context, 1),
-      color: global.tertiaryColor,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            color: Colors.white,
+            height: global.setHeight(context, .05),
+            width: global.setWidth(context, 1),
+            color: global.tertiaryColor,
+            alignment: Alignment.center,
+            child: const Text(
+              'Add Outfit Info.',
+              style: TextStyle(
+                fontSize: 15,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: global.setHeight(context, .01),
+          ),
+          SizedBox(
             height: global.setHeight(context, .12),
             width: global.setWidth(context, 1),
             child: Row(
@@ -96,14 +102,21 @@ class _DropdownMenuState extends State<DropdownMenu> {
                               ),
                             ),
                             (selectedItem == 'custom')
-                                ? SizedBox(
-                                    height: global.setHeight(context, .07),
-                                    width: global.setWidth(context, .5),
-                                    child: TextInput(
-                                      controller: customController,
-                                      label: '',
-                                      obsecure: false,
-                                    ),
+                                ? Row(
+                                    children: [
+                                      SizedBox(
+                                        width: global.setWidth(context, .05),
+                                      ),
+                                      SizedBox(
+                                        height: global.setHeight(context, .07),
+                                        width: global.setWidth(context, .45),
+                                        child: TextInput(
+                                          controller: customController,
+                                          label: 'Enter a type',
+                                          obsecure: false,
+                                        ),
+                                      ),
+                                    ],
                                   )
                                 : Container(),
                           ],
@@ -115,7 +128,8 @@ class _DropdownMenuState extends State<DropdownMenu> {
                         child: TextInput(
                           controller: descriptionController,
                           obsecure: false,
-                          label: 'Enter clothing info.',
+                          label:
+                              'Enter clothing info here. (Maker, Model, Size, etc)',
                         ),
                       ),
                     ],
@@ -124,7 +138,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
                 SizedBox(
                   width: global.setWidth(context, .05),
                 ),
-                SizedBox(
+                Container(
                   height: global.setHeight(context, .12),
                   width: global.setWidth(context, .1),
                   child: GestureDetector(
@@ -150,8 +164,12 @@ class _DropdownMenuState extends State<DropdownMenu> {
             ),
           ),
           SizedBox(
-            height: global.setHeight(context, .18),
+            height: global.setHeight(context, .03),
+          ),
+          Container(
+            height: global.setHeight(context, .15),
             width: global.setWidth(context, 1),
+            color: global.tertiaryColor,
             child: (itemInfos.length == 0)
                 ? Text('please add at least 1 clothing info')
                 : ListView.builder(
