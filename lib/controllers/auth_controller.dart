@@ -6,6 +6,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../pages/login_screen.dart';
 import '../pages/landing_screen.dart';
 
+import './user_controller.dart';
+
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
   late Rx<User?> user;
@@ -36,8 +38,25 @@ class AuthController extends GetxController {
 
   void register(String email, password) async {
     try {
-      await auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      await auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((result) {
+        print(result);
+        var userInfo = {
+          'uid': result.user!.uid,
+          'email': email,
+          'greetMsg': 'Greetings!',
+          'myPosts': [],
+          'following': [],
+          'stats': {
+            'posts': 0,
+            'following': 0,
+            'followers': 0,
+            'likes': 0,
+          },
+        };
+        UserController.instance.createUserDoc(userInfo);
+      });
     } catch (e) {
       Get.snackbar(
         'register error',
