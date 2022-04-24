@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import './controllers/auth_controller.dart';
 import './controllers/user_controller.dart';
+import './controllers/post_controller.dart';
 
 import './pages/splash_screen.dart';
 
@@ -17,6 +18,9 @@ void main() async {
       );
       Get.put(
         UserController(),
+      );
+      Get.put(
+        PostController(),
       );
     },
   );

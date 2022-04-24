@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../statics/global.dart' as global;
 
+import '../widgets/tag_list.dart';
+
 class SinglePostScreen extends StatefulWidget {
   final Map post;
   const SinglePostScreen({
@@ -17,17 +19,22 @@ class SinglePostScreen extends StatefulWidget {
 class _SinglePostScreenState extends State<SinglePostScreen> {
   @override
   Widget build(BuildContext context) {
+    List<String> tagList = widget.post['tags'].cast<String>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: global.tertiaryColor,
         title: Text('Post Detail'),
       ),
-      body: SizedBox(
+      body: Container(
         height: global.setHeight(context, 1),
         width: global.setWidth(context, 1),
+        color: global.secondaryColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: global.setHeight(context, .05),
+            ),
             Container(
               width: global.setWidth(context, 1),
               height: global.setHeight(context, .05),
@@ -37,9 +44,16 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
                   SizedBox(
                     width: global.setWidth(context, .05),
                   ),
-                  Text('UserID'),
+                  Text(
+                    widget.post['creator'],
+                  ),
                   Expanded(child: Container()),
-                  Text('Upload-Date'),
+                  Text(
+                    widget.post['createdAt']
+                        .toDate()
+                        .toString()
+                        .substring(0, 10),
+                  ),
                   Expanded(child: Container()),
                   FaIcon(FontAwesomeIcons.heart),
                   SizedBox(
@@ -54,7 +68,7 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
             SizedBox(
               width: global.setWidth(context, .8),
               height: global.setHeight(context, .3),
-              child: Image.asset(widget.post['postImg']),
+              child: Image.network(widget.post['imgUrl']),
             ),
             SizedBox(
               height: global.setHeight(context, .025),
@@ -65,6 +79,9 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
               color: global.secondaryColor,
               child: Text('Tags here'),
             ),
+            TagList(
+              tags: tagList,
+            ),
             SizedBox(
               height: global.setHeight(context, .025),
             ),
@@ -73,6 +90,9 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
               height: global.setWidth(context, .3),
               color: global.secondaryColor,
               child: Text('Clothing info.'),
+            ),
+            Expanded(
+              child: Container(),
             ),
           ],
         ),

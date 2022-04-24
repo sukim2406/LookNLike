@@ -41,8 +41,8 @@ class SearchGrid extends StatelessWidget {
               decoration: BoxDecoration(
                 color: global.tertiaryColor,
               ),
-              child: Image.asset(
-                posts[index]['img'],
+              child: Image.network(
+                posts[index]['imgUrl'],
               ),
             ),
           );
